@@ -1,0 +1,283 @@
+* {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', 'Poppins', 'Comic Neue', system-ui, -apple-system, sans-serif;
+      background: linear-gradient(145deg, #fbc2c2 0%, #fde6b3 100%);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 24px;
+    }
+
+    /* main quiz card */
+    .sense-card {
+      max-width: 750px;
+      width: 100%;
+      background: #fffef7;
+      border-radius: 72px 56px 72px 56px;
+      box-shadow: 0 30px 40px rgba(0, 0, 0, 0.2), inset 0 1px 2px rgba(255,255,200,0.8);
+      overflow: hidden;
+      transition: all 0.2s ease;
+    }
+
+    /* header with fun icons */
+    .sense-header {
+      background: #ffefcf;
+      padding: 28px 24px 20px;
+      text-align: center;
+      border-bottom: 4px solid #ffcd94;
+    }
+
+    .sense-header h1 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, #e67e22, #f39c12);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      letter-spacing: -0.5px;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .sense-header p {
+      color: #b45f2b;
+      font-weight: 500;
+      margin-top: 8px;
+      font-size: 1rem;
+    }
+
+    .sense-icons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 18px;
+      font-size: 1.6rem;
+    }
+
+    /* stats bar */
+    .quiz-stats {
+      background: #fff3e0;
+      padding: 12px 28px;
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 2px solid #ffe0b5;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .badge {
+      background: white;
+      border-radius: 60px;
+      padding: 6px 18px;
+      font-weight: 600;
+      color: #d97706;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    }
+
+    .badge span:first-child {
+      margin-right: 8px;
+      color: #8b5a2b;
+    }
+
+    /* content area */
+    .quiz-body {
+      padding: 28px 28px 24px;
+    }
+
+    .question-box {
+      background: #fef5e7;
+      border-radius: 48px;
+      padding: 24px 28px;
+      margin-bottom: 32px;
+      border-left: 12px solid #f4a261;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.03);
+    }
+
+    .question-text {
+      font-size: 1.7rem;
+      font-weight: 700;
+      color: #3b2a1f;
+      line-height: 1.35;
+    }
+
+    /* options grid */
+    .options-area {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-bottom: 28px;
+    }
+
+    .sense-option {
+      background: #ffffff;
+      border: 2px solid #ffe2bf;
+      border-radius: 80px;
+      padding: 15px 22px;
+      font-size: 1.05rem;
+      font-weight: 600;
+      text-align: left;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-family: inherit;
+      color: #4a3724;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .option-icon {
+      font-size: 1.6rem;
+      width: 44px;
+      text-align: center;
+    }
+
+    .sense-option:hover:not(:disabled) {
+      background: #fff0dd;
+      border-color: #f4a261;
+      transform: scale(0.98);
+    }
+
+    /* correct/wrong states */
+    .sense-option.correct-highlight {
+      background: #ccf7d0;
+      border-color: #2e7d32;
+      color: #1b5e20;
+    }
+
+    .sense-option.wrong-highlight {
+      background: #ffe0db;
+      border-color: #d32f2f;
+      color: #b71c1c;
+    }
+
+    .sense-option.disabled-opt {
+      cursor: default;
+      opacity: 0.8;
+    }
+
+    /* feedback message */
+    .feedback-message {
+      background: #fff1dd;
+      border-radius: 40px;
+      padding: 16px 24px;
+      margin: 16px 0 20px;
+      font-weight: 500;
+      text-align: center;
+      font-size: 0.95rem;
+      color: #ad6b35;
+    }
+
+    .next-btn {
+      width: 100%;
+      background: linear-gradient(95deg, #f39c12, #e67e22);
+      border: none;
+      padding: 16px;
+      border-radius: 60px;
+      font-weight: 800;
+      font-size: 1.1rem;
+      color: white;
+      cursor: pointer;
+      transition: 0.2s;
+      font-family: inherit;
+      box-shadow: 0 5px 0 #b45f1b;
+    }
+
+    .next-btn:active {
+      transform: translateY(2px);
+      box-shadow: 0 2px 0 #b45f1b;
+    }
+
+    .next-btn:disabled {
+      background: #d4bc9a;
+      box-shadow: 0 5px 0 #a08157;
+      cursor: not-allowed;
+      opacity: 0.7;
+      transform: none;
+    }
+
+    /* result screen */
+    .result-screen {
+      text-align: center;
+      padding: 28px 24px 36px;
+    }
+
+    .final-score {
+      font-size: 4rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, #e67e22, #f4c542);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      margin: 15px 0;
+    }
+
+    .result-emoji {
+      font-size: 3rem;
+    }
+
+    .restart-quiz {
+      background: #ffb347;
+      border: none;
+      padding: 14px 28px;
+      border-radius: 40px;
+      font-weight: bold;
+      font-size: 1rem;
+      margin-top: 20px;
+      cursor: pointer;
+      transition: 0.2s;
+      font-family: inherit;
+      color: #2d2b1f;
+    }
+
+    .restart-quiz:hover {
+      background: #ffa01e;
+      transform: scale(1.02);
+    }
+
+    .answer-review {
+      text-align: left;
+      max-height: 350px;
+      overflow-y: auto;
+      margin: 24px 0 16px;
+      padding-right: 8px;
+    }
+
+    .review-item {
+      background: #fff7e8;
+      border-radius: 28px;
+      padding: 14px 18px;
+      margin-bottom: 12px;
+      border-left: 6px solid #f5b042;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.7rem;
+      padding: 18px 0 22px;
+      color: #bb8a5c;
+      background: #fff6ea;
+      border-top: 1px solid #ffe2bf;
+    }
+
+    @media (max-width: 550px) {
+      .sense-card {
+        border-radius: 40px;
+      }
+      .question-text {
+        font-size: 1.3rem;
+      }
+      .sense-option {
+        padding: 12px 18px;
+      }
+      .option-icon {
+        font-size: 1.3rem;
+        width: 36px;
+      }
+    }
